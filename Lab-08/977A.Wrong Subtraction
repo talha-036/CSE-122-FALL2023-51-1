@@ -1,0 +1,27 @@
+#include<iostream>
+using namespace std;
+
+int main()
+{
+    long long int number;
+    int x;
+    cin>>number;
+    cin>>x;
+
+    for(int i=0; x>0; i++)
+    {
+        if(number%10==0)
+        {
+            number = number/10;
+            x--;
+        }
+        else
+        {
+            number = number-1;
+            x--;
+        }
+    }
+
+    cout<<number;
+    return 0;
+}
