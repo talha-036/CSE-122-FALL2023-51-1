@@ -1,0 +1,35 @@
+#include <iostream>
+
+using namespace std;
+
+int main() {
+
+    int numberOfFriend,FenceHeight;
+
+
+    cin>>numberOfFriend;
+    cin>>FenceHeight;
+
+    int FriendAtrribute;
+
+    int width=0;
+
+    for(int i=0; i<numberOfFriend;i++)
+    {
+        cin>>FriendAtrribute;
+
+        if(FenceHeight<FriendAtrribute)
+        {
+            width+=2;
+        }
+
+        else
+        {
+            width++;
+        }
+    }
+
+    cout<<width<<endl;
+
+    return 0;
+}
