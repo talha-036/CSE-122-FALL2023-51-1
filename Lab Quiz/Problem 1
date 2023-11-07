@@ -1,0 +1,60 @@
+#include <iostream>
+using namespace std;
+
+class Array
+{
+public:
+    int arr[5];
+    char arr2[5];
+
+    void Insert(int index, int value)
+    {
+        arr[index]= value;
+    }
+
+    void Insert(int index, char value)
+    {
+        arr2[index]= value;
+    }
+};
+
+int main()
+{
+    Array obj;
+
+    //Inserting integer Array
+    obj.Insert(0,1);
+    obj.Insert(1,2);
+    obj.Insert(2,3);
+    obj.Insert(3,4);
+    obj.Insert(4,5);
+
+    //Inserting Character Array
+    obj.Insert(0,'a');
+    obj.Insert(1,'b');
+    obj.Insert(2,'c');
+    obj.Insert(3,'d');
+    obj.Insert(4,'e');
+
+
+    cout<<"Printing The Integer Array: "<<endl;
+
+    for (int i = 0; i < sizeof(obj.arr) / sizeof(obj.arr[0]); i++)
+
+    {
+        cout <<"index "<<i<<": "<<obj.arr[i] <<endl;
+    }
+
+
+    cout<<"\n\n\n";
+
+    cout<<"Printing The Character Array: "<<endl;
+    for (int i = 0; i < sizeof(obj.arr2) / sizeof(obj.arr2[0]); i++)
+
+    {
+        cout <<"index "<<i<<": "<<obj.arr2[i] <<endl;
+    }
+
+    return 0;
+
+}
