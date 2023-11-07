@@ -1,0 +1,80 @@
+#include <iostream>
+using namespace std;
+
+class CompareValue
+{
+public:
+    int largestInt=0;           //Initialized to ensure it's not garbage
+    char largestChar='\0';
+    double largestFloat=0.0;
+
+    CompareValue(int a, int b, int c)
+    {
+        largestInt = a;
+        if (b > largestInt)
+        {
+            largestInt = b;
+        }
+        if (c > largestInt)
+        {
+            largestInt = c;
+        }
+
+    }
+
+    CompareValue(double a, double b, double c)
+    {
+        largestFloat = a;
+        if (b > largestFloat)
+        {
+            largestFloat = b;
+        }
+        if (c > largestFloat)
+        {
+            largestFloat = c;
+        }
+
+    }
+
+    CompareValue(char a, char b, char c)
+    {
+        largestChar = a;
+        if (b > largestChar)
+        {
+            largestChar = b;
+        }
+        if (c > largestChar)
+        {
+            largestChar = c;
+        }
+    }
+};
+
+void printLargest( CompareValue obj)
+{
+    if (obj.largestInt)
+    {
+        cout << "The greatest Integer is  : "<<obj.largestInt << endl;
+    }
+    if (obj.largestFloat)
+    {
+        cout << "The greatest Float is    : "<<obj.largestFloat << endl;
+    }
+    if (obj.largestChar)
+    {
+        cout << "The greatest Character is: "<<obj.largestChar << endl;
+    }
+}
+
+int main()
+{
+    CompareValue integer(5, 8, 9);
+    CompareValue Character('a', 'b', 'c');
+    CompareValue Float(3.5, 4.8, 10.5);
+
+    printLargest(integer);
+    printLargest(Character);
+    printLargest(Float);
+
+    return 0;
+}
