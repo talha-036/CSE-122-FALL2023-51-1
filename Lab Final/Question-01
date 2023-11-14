@@ -1,0 +1,76 @@
+#include<iostream>
+using namespace std;
+
+class ManchesterUnited
+{
+private:
+    int coach = 0;
+    int player = 0;
+
+public:
+    void getData()
+    {
+        cout << "Coach: " << coach << ", Player: " << player << endl;
+    }
+
+    ManchesterUnited(int a, int b)
+    {
+        coach = a;
+        player = b;
+    }
+
+    void operator++(int)
+    {
+        // Overload the postfix increment operator
+        coach++;
+        player++;
+    }
+
+    bool operator==(ManchesterUnited &obj)
+    {
+        // Compare the current object with another object
+        return (this->coach + this->player == obj.coach + obj.player);
+    }
+};
+
+int main()
+{
+    ManchesterUnited ronaldo(4, 5);
+    ManchesterUnited fernandes(5, 6);
+
+    cout<<"Crew Member for Ronaldo  : ";
+    ronaldo.getData();
+
+    cout<<"Crew Member for Fernandes: ";
+    fernandes.getData();
+    if (ronaldo == fernandes)
+    {
+        cout << "Crew Member is equal"<<endl;
+    }
+    else
+    {
+        cout << "Crew Member is not equal"<<endl;
+    }
+
+    cout<<endl;
+    cout<<endl;
+
+    ronaldo++; // Increment coach and player for Ronaldo
+
+    cout<<"Crew Member for Ronaldo  : ";
+    ronaldo.getData();
+
+    cout<<"Crew Member for Fernandes: ";
+    fernandes.getData();
+
+    if (ronaldo == fernandes)
+    {
+        cout << "Crew Member is equal"<<endl;
+    }
+    else
+    {
+        cout << "Crew Member is not equal"<<endl;
+    }
+
+    return 0;
+}
