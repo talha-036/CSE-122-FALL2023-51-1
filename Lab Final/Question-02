@@ -1,0 +1,78 @@
+#include <iostream>
+#include <cassert>
+using namespace std;
+
+class Fraction
+{
+public:
+    int numerator;
+    int denominator;
+    // Constructor
+    Fraction(int num, int denom)
+    {
+        assert(typeid(num) == typeid(int));
+        assert(typeid(denom) == typeid(int));
+        assert(denom != 0);
+
+        numerator = num;
+        denominator = denom;
+    }
+
+    // Method to reduce the fraction to lowest terms
+    int calculateGCD(int a, int b)
+    {
+        while (b != 0)
+        {
+            int temp = b;
+            b = a % b;
+            a = temp;
+        }
+        return a;
+    }
+
+
+    void reduce()
+    {
+        int gcd = calculateGCD(numerator, denominator);
+        numerator = numerator/ gcd;
+        denominator =denominator/gcd;
+    }
+
+    // Human-readable representation
+    string __str__()
+    {
+        return to_string(numerator) + "/" + to_string(denominator);
+    }
+
+    // Representation for Programmer
+    string __repl__()
+    {
+        return "Fraction(" + to_string(numerator) + ", " + to_string(denominator) + ")";
+    }
+
+
+};
+
+int main()
+{
+    Fraction obj(10,20);
+
+    cout<<"Before using the reduce function:"<<endl;
+    cout<<endl;
+    cout<<"Human-Readable Representation: "<<obj.__str__()<<endl;
+    cout<<"Programmer Readable Representation: "<<obj.__repl__()<<endl;
+
+
+
+    cout<<endl;
+    cout<<endl;
+    cout<<endl;
+
+    cout<<"After using the reduce function:"<<endl;
+    cout<<endl;
+    obj.reduce();
+    cout<<"Human-Readable Representation: "<<obj.__str__()<<endl;
+    cout<<"Programmer Readable Representation: "<<obj.__repl__()<<endl;
+
+    return 0;
+}
